@@ -45,12 +45,9 @@ $app->get('/companies', function ($request, $response) use ($companies) {
     return $response
             ->withHeader('Content-Type', 'application/json');
 });
-$app->get('/allcompanies', function ($request, $response) use ($companies) {
- //   $page = $request->getQueryParam('page', 1);
- //   $per = $request->getQueryParam('per', 5);
-    $response->getBody()->write(json_encode($companies));
-    return $response
-            ->withHeader('Content-Type', 'application/json');
+$app->get('/courses/{id}', function ($request, $response, array $args) {
+    $id = $args['id'];
+    return $response->write("Course id: {$id}");
 });
 // END
 
